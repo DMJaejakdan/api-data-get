@@ -38,4 +38,4 @@ out/
 
 ### sercet ###
 apikey.yml
-*.dbg
+*.db

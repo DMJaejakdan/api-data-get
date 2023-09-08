@@ -12,10 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class DramaDetailResponse {
-    private String lastAirDate;
-    private List<NetworkResponse> networks;
-    private ContentRatingsResponse contentRatings;
-    private KeywordsResponse keywords;
-    private List<ProductionCompanyResponse> productionCompanies;
+public class ContentRatingsResponse {
+    private List<ContentResultsResponse> results;
 }

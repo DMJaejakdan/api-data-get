@@ -1,14 +1,11 @@
-package com.dmj.dmzdbtest.content.controller;
+package com.dmj.dmzdbtest.data.controller;
 
-import com.dmj.dmzdbtest.content.dto.response.DramaListResponse;
-import com.dmj.dmzdbtest.util.APIConfig;
-import com.dmj.dmzdbtest.util.DataGenerationTask;
+import com.dmj.dmzdbtest.data.APIConfig;
+import com.dmj.dmzdbtest.data.DataGenerationTask;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 @Controller
 @Slf4j

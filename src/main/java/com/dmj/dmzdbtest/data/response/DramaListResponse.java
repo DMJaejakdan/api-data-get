@@ -1,8 +1,10 @@
-package com.dmj.dmzdbtest.content.dto.response;
+package com.dmj.dmzdbtest.data.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Builder
@@ -10,9 +12,9 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class NetworkResponse {
-    int id;
-    String logoPath;
-    String name;
-    String originCountry;
+public class DramaListResponse {
+    int page;
+    List<DramaResultResponse> results;
+    int totalPages;
+    int totalResults;
 }

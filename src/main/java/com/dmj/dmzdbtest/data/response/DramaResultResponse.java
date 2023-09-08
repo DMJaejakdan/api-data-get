@@ -1,4 +1,4 @@
-package com.dmj.dmzdbtest.content.dto.response;
+package com.dmj.dmzdbtest.data.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

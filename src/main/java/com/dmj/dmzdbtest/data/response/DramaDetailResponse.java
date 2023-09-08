@@ -1,4 +1,4 @@
-package com.dmj.dmzdbtest.content.dto.response;
+package com.dmj.dmzdbtest.data.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -12,9 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class DramaListResponse {
-    int page;
-    List<DramaResultResponse> results;
-    int totalPages;
-    int totalResults;
+public class DramaDetailResponse {
+    private String lastAirDate;
+    private List<NetworkResponse> networks;
 }

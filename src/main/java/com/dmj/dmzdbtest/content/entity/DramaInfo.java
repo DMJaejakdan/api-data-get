@@ -1,7 +1,10 @@
 package com.dmj.dmzdbtest.content.entity;
 
 import com.dmj.dmzdbtest.data.response.DramaDetailResponse;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -30,9 +33,13 @@ public class DramaInfo {
     }
 
     public static DramaInfo toEntity(Content content, DramaDetailResponse dramaDetailResponse) {
+        LocalDate localDate = null;
+        if (dramaDetailResponse.getLastAirDate() != null) {
+            localDate = LocalDate.parse(dramaDetailResponse.getLastAirDate());
+        }
         return DramaInfo.builder()
                 .content(content)
-                .endDate(LocalDate.parse(dramaDetailResponse.getLastAirDate()))
+                .endDate(localDate)
                 .channel(dramaDetailResponse.getNetworks().get(0).getName())
                 .build();
     }

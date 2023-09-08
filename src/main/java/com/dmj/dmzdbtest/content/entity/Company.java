@@ -1,6 +1,6 @@
-package com.dmj.dmzdbtest;
+package com.dmj.dmzdbtest.content.entity;
 
-import com.dmj.dmzdbtest.content.entity.Content;
+import com.dmj.dmzdbtest.data.response.ProductionCompanyResponse;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,19 +16,20 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "content_id")
-    private Content content;
-
     @Column(nullable = false)
     private String name;
 
     private Long tmdbId;
 
     @Builder
-    public Company(Content content, String name, Long tmdbId) {
-        this.content = content;
+    public Company(String name, Long tmdbId) {
         this.name = name;
         this.tmdbId = tmdbId;
+    }
+    public static Company toEntity(ProductionCompanyResponse productionCompanyResponse) {
+        return Company.builder()
+                .name(productionCompanyResponse.getName())
+                .tmdbId(productionCompanyResponse.getId())
+                .build();
     }
 }

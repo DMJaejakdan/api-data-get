@@ -1,10 +1,13 @@
 package com.dmj.dmzdbtest.content.entity;
 
+import com.dmj.dmzdbtest.data.response.ContentResultsResponse;
+import com.dmj.dmzdbtest.data.response.DramaDetailResponse;
 import com.dmj.dmzdbtest.data.response.DramaResultResponse;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,16 +30,14 @@ public class Content {
 
     private LocalDate releasedDate;
 
-    @Enumerated(value = EnumType.STRING)
-    private ContentRating rating;
-
-    private String keyword;
+//    @Enumerated(value = EnumType.STRING)
+    private String rating;
 
     @Column(length = 5000)
     private String plot;
 
     @Builder
-    public Content(int tmdbId, String nameKr, String nameEn, ContentKind kind, String posterPath, LocalDate releasedDate, ContentRating rating, String keyword, String plot) {
+    public Content(int tmdbId, String nameKr, String nameEn, ContentKind kind, String posterPath, LocalDate releasedDate, String rating, String plot) {
         this.tmdbId = tmdbId;
         this.nameKr = nameKr;
         this.nameEn = nameEn;
@@ -44,11 +45,18 @@ public class Content {
         this.posterPath = posterPath;
         this.releasedDate = releasedDate;
         this.rating = rating;
-        this.keyword = keyword;
         this.plot = plot;
     }
 
-    public static Content toEntity(DramaResultResponse result) {
+    public static Content toEntity(DramaResultResponse result, DramaDetailResponse dramaDetailResponse) {
+        List<ContentResultsResponse> crr = dramaDetailResponse.getContentRatings().getResults();
+        String KRRating = "";
+        for (ContentResultsResponse c:crr) {
+            if (c.getIso_3166_1().equals("KR")) {
+                KRRating = c.getRating();
+                break;
+            }
+        }
         return Content.builder()
                 .releasedDate(LocalDate.parse(result.getFirstAirDate()))
                 .tmdbId(result.getId())
@@ -57,6 +65,7 @@ public class Content {
                 .nameEn(result.getName())
                 .plot(result.getOverview())
                 .posterPath(result.getPosterPath())
+                .rating(KRRating)
                 .build();
     }
 

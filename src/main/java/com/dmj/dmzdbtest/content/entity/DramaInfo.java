@@ -1,6 +1,6 @@
 package com.dmj.dmzdbtest.content.entity;
 
-import com.dmj.dmzdbtest.content.dto.response.DramaDetailResponse;
+import com.dmj.dmzdbtest.data.response.DramaDetailResponse;
 import lombok.*;
 
 import javax.persistence.*;

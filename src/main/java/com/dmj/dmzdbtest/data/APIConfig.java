@@ -1,4 +1,4 @@
-package com.dmj.dmzdbtest.util;
+package com.dmj.dmzdbtest.data;
 
 import lombok.Getter;
 import lombok.Setter;

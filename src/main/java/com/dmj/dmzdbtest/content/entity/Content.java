@@ -1,6 +1,6 @@
 package com.dmj.dmzdbtest.content.entity;
 
-import com.dmj.dmzdbtest.content.dto.response.DramaResultResponse;
+import com.dmj.dmzdbtest.data.response.DramaResultResponse;
 import lombok.*;
 
 import javax.persistence.*;
@@ -53,8 +53,8 @@ public class Content {
                 .releasedDate(LocalDate.parse(result.getFirstAirDate()))
                 .tmdbId(result.getId())
                 .kind(ContentKind.DRAMA)
-                .nameKr(result.getName())
-                .nameEn(result.getOriginalName())
+                .nameKr(result.getOriginalName())
+                .nameEn(result.getName())
                 .plot(result.getOverview())
                 .posterPath(result.getPosterPath())
                 .build();

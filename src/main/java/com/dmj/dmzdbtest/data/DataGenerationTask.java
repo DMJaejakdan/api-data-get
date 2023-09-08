@@ -1,8 +1,8 @@
-package com.dmj.dmzdbtest.util;
+package com.dmj.dmzdbtest.data;
 
-import com.dmj.dmzdbtest.content.dto.response.DramaDetailResponse;
-import com.dmj.dmzdbtest.content.dto.response.DramaListResponse;
-import com.dmj.dmzdbtest.content.dto.response.DramaResultResponse;
+import com.dmj.dmzdbtest.data.response.DramaDetailResponse;
+import com.dmj.dmzdbtest.data.response.DramaListResponse;
+import com.dmj.dmzdbtest.data.response.DramaResultResponse;
 import com.dmj.dmzdbtest.content.entity.Content;
 import com.dmj.dmzdbtest.content.entity.DramaInfo;
 import com.dmj.dmzdbtest.content.repository.ContentRepository;
@@ -56,7 +56,7 @@ public class DataGenerationTask {
                     .queryParam("api_key", apikey)
                     .queryParam("include_adult", false)
                     .queryParam("include_null_first_air_dates", false)
-                    .queryParam("language", "ko")
+                    .queryParam("language", "en-US")
                     .queryParam("sort_by", "popularity.desc")
                     .queryParam("with_genres", "18")
                     .queryParam("with_origin_country", "KR")
